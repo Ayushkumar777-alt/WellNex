@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellNex | Personal Health Consultant</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar glass-panel">
+            <div class="logo">
+                <img src="logo.png" alt="WellNex Logo" style="width: 44px; height: 44px; border-radius: 12px; box-shadow: var(--glow);">
+                <h2>WellNex</h2>
+            </div>
+            
+            <ul class="nav-links">
+                <li class="nav-item active" data-tab="dashboard">
+                    <i class="ri-dashboard-line"></i> Dashboard
+                </li>
+                <li class="nav-item" data-tab="fitness">
+                    <i class="ri-run-line"></i> Fitness Center
+                </li>
+                <li class="nav-item" data-tab="nutrition">
+                    <i class="ri-restaurant-line"></i> Nutrition Planner
+                </li>
+                <li class="nav-item" data-tab="mental_health">
+                    <i class="ri-brain-line"></i> Mind & Rest
+                </li>
+            </ul>
+
+            <div class="user-profile" id="userProfileBtn" style="cursor: pointer;">
+                <img src="https://ui-avatars.com/api/?name=User&background=random&color=fff" alt="User Profile">
+                <span>Personalized Setup</span>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header">
+                <h1>Welcome Back</h1>
+                <p>Your AI Consultant is ready to assist you in reaching peak form.</p>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- Tab Content: Dashboard -->
+                <section id="dashboard" class="tab-content active glass-panel">
+                    <h3>Today's Focus</h3>
+                    <p style="color:var(--text-muted); margin-bottom: 20px;">Use the chat interface to ask targeted questions.</p>
+                    <div class="metrics-grid">
+                        <div class="metric-card action-card" data-target="fitness" data-prompt="Provide a tailored workout plan to build muscle and improve endurance.">
+                            <i class="ri-fire-fill metric-icon color-fitness"></i>
+                            <h4>Fitness</h4>
+                            <p>Build muscle and improve endurance with tailored workouts.</p>
+                        </div>
+                        <div class="metric-card action-card" data-target="nutrition" data-prompt="Can you create a custom meal plan for me and help me understand my macros?">
+                            <i class="ri-plant-fill metric-icon color-nutrition"></i>
+                            <h4>Nutrition</h4>
+                            <p>Get custom meal plans and understand your macros.</p>
+                        </div>
+                        <div class="metric-card action-card" data-target="mental_health" data-prompt="Give me some stress management techniques and high-quality recovery routines.">
+                            <i class="ri-moon-fill metric-icon color-mental"></i>
+                            <h4>Mental Edge</h4>
+                            <p>Stress management and high-quality recovery routines.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="fitness" class="tab-content glass-panel" style="display: none;">
+                    <h3>Fitness Center</h3>
+                    <p style="color:var(--text-muted); margin-bottom: 20px;">Ask the AI for a new workout split, form checks, or strength milestones. Your queries here are biased towards physical training.</p>
+                    <div class="metrics-grid">
+                        <div class="metric-card action-card" data-target="fitness" data-prompt="Design a 4-day push/pull workout split for hypertrophy.">
+                            <i class="ri-blaze-line metric-icon color-fitness"></i>
+                            <h4>Hypertrophy Split</h4>
+                            <p>Build lean muscle with a structured 4-day routine.</p>
+                        </div>
+                        <div class="metric-card action-card" data-target="fitness" data-prompt="What are the best mobility exercises for squat depth and hip health?">
+                            <i class="ri-body-scan-line metric-icon color-fitness"></i>
+                            <h4>Mobility & Form</h4>
+                            <p>Enhance flexibility and prevent injuries.</p>
+                        </div>
+                        <div class="metric-card action-card" data-target="fitness" data-prompt="Create a high-intensity interval training (HIIT) routine for fat loss.">
+                            <i class="ri-timer-flash-line metric-icon color-fitness"></i>
+                            <h4>HIIT Cardio</h4>
+                            <p>Fast-paced metabolic conditioning for cutting.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="nutrition" class="tab-content glass-panel" style="display: none;">
+                    <h3>Nutrition Planner</h3>
+                    <p style="color:var(--text-muted); margin-bottom: 20px;">Request a high-protein meal prep, caloric surplus guide, or intermittent fasting rules here.</p>
+                    <div class="metrics-grid">
+                        <div class="metric-card action-card" data-target="nutrition" data-prompt="Can you create a 2500 calorie high-protein meal prep plan?">
+                            <i class="ri-restaurant-2-line metric-icon color-nutrition"></i>
+                            <h4>Meal Prep Pro</h4>
+                            <p>Get a high-protein, balanced meal prep guide.</p>
+                        </div>
+                        <div class="metric-card action-card" data-target="nutrition" data-prompt="Explain the benefits of intermittent fasting and how to start a 16:8 schedule.">
+                            <i class="ri-time-line metric-icon color-nutrition"></i>
+                            <h4>Fasting Protocols</h4>
+                            <p>Learn about time-restricted eating and its benefits.</p>
+                        </div>
+                        <div class="metric-card action-card" data-target="nutrition" data-prompt="What are the best supplements for recovery and muscle growth?">
+                            <i class="ri-test-tube-line metric-icon color-nutrition"></i>
+                            <h4>Supplement Guide</h4>
+                            <p>Science-backed advice on protein, creatine, and more.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="mental_health" class="tab-content glass-panel" style="display: none;">
+                    <h3>Mind & Rest</h3>
+                    <p style="color:var(--text-muted); margin-bottom: 20px;">Mental health is key to performance. Ask about stress-relief, sleep optimization, and overcoming mental fatigue.</p>
+                    <div class="metrics-grid">
+                        <div class="metric-card action-card" data-target="mental_health" data-prompt="Guide me through a 5-minute box breathing exercise for immediate stress relief.">
+                            <i class="ri-windy-line metric-icon color-mental"></i>
+                            <h4>Box Breathing</h4>
+                            <p>Regulate your nervous system instantly.</p>
+                        </div>
+                        <div class="metric-card action-card" data-target="mental_health" data-prompt="How can I optimize my sleep hygiene for better REM sleep and recovery?">
+                            <i class="ri-zzz-line metric-icon color-mental"></i>
+                            <h4>Sleep Optimization</h4>
+                            <p>Science-backed protocols for deep rest.</p>
+                        </div>
+                        <div class="metric-card action-card" data-target="mental_health" data-prompt="Give me strategies to overcome burnout and mental fatigue at work.">
+                            <i class="ri-battery-low-line metric-icon color-mental"></i>
+                            <h4>Beat Burnout</h4>
+                            <p>Identify triggers and recharge mental energy.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Chat Interface -->
+                <div class="chat-container glass-panel">
+                    <div class="chat-header">
+                        <div class="ai-avatar">
+                            <i class="ri-robot-2-line"></i>
+                        </div>
+                        <div class="ai-info">
+                            <h3>WellNex AI</h3>
+                            <span class="status">Online & Ready</span>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message ai-message">
+                            <div class="message-content">Hello there! I'm WellNex, your personal AI Men's Health Consultant. <strong>What's our goal for today?</strong> Muscle gain, fat loss, or better sleep? Select a tab to shift context or just ask me anything!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <input type="text" id="userInput" placeholder="Ask about workouts, macros, or wellness..." autocomplete="off">
+                        <button id="sendBtn" class="primary-btn"><i class="ri-send-plane-fill"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Background Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <!-- Profile Modal -->
+    <div id="profileModalWrapper" class="modal-wrapper" style="display: none;">
+        <div class="modal glass-panel">
+            <div class="modal-header">
+                <h3>Personalized Setup</h3>
+                <i class="ri-close-line" id="closeModalBtn" style="cursor: pointer; font-size: 24px;"></i>
+            </div>
+            <div class="modal-body">
+                <p style="color:var(--text-muted); font-size: 14px; margin-bottom: 20px;">Provide your stats so the AI can customize advice for you.</p>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" id="inputAge" placeholder="e.g., 28">
+                </div>
+                <div class="form-group">
+                    <label>Weight (kg/lbs)</label>
+                    <input type="text" id="inputWeight" placeholder="e.g., 75kg">
+                </div>
+                <div class="form-group">
+                    <label>Height</label>
+                    <input type="text" id="inputHeight" placeholder="e.g., 5'10 or 178cm">
+                </div>
+                <div class="form-group">
+                    <label>Goal</label>
+                    <select id="inputGoal">
+                        <option value="">Select a goal...</option>
+                        <option value="Fat Loss">Fat Loss</option>
+                        <option value="Muscle Gain">Muscle Gain</option>
+                        <option value="Stress Relief">Stress Relief</option>
+                        <option value="General Health">General Health</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Activity Level</label>
+                    <select id="inputActivity">
+                        <option value="">Select level...</option>
+                        <option value="Sedentary">Sedentary (office job)</option>
+                        <option value="Lightly Active">Lightly Active (1-3 days)</option>
+                        <option value="Moderately Active">Moderately (3-5 days)</option>
+                        <option value="Very Active">Very Active (6-7 days)</option>
+                    </select>
+                </div>
+                <button id="saveProfileBtn" class="primary-btn" style="width: 100%; margin-top: 10px; border-radius: 12px; font-size: 16px; padding: 12px 0;">Save Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
